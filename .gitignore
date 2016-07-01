@@ -1,0 +1,10 @@
+.settings
+bin
+.classpath
+.project
+.idea/
+AngryNerds.iml
+target/
+.classpath
+.project
+.settings
