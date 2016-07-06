@@ -1,0 +1,50 @@
+package nl.programit.service;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import nl.programit.domain.Question;
+import nl.programit.repository.QuestionRepository;
+
+@Service
+@Transactional
+public class QuestionService {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(QuestionService.class);
+
+	@Autowired
+	private QuestionRepository questionRepository;
+
+	public Iterable<Question> findAll() {
+		Iterable<Question> result = this.questionRepository.findAll();
+
+		LOGGER.info("The result of all questions are [{}]", result);
+
+		return result;
+	}
+
+	public Question findLastInsertedQuestion() {
+		List<Question> questions = this.questionRepository.findTop1ByOrderByQuestionIDDesc();
+
+		Question result = null;
+		if (questions != null) {
+			result = questions.get(0);
+		}
+		
+		return result;
+	}
+
+	public Question saveQuestion(Question question) {
+		return questionRepository.save(question);
+	}
+
+	public Question findById(int questionID) {
+
+		return questionRepository.findOne(questionID);
+	}
+}
