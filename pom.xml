@@ -56,6 +56,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- De volgende dependency heb ik (RvdM)toegevoegd om de UserController werkend te krijgen. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		
 	</dependencies>
 	
 	<build>

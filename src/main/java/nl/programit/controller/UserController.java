@@ -16,18 +16,24 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import eu.programit.domain.User;
-import eu.programit.service.UserService;
+import nl.programit.domain.User;
+import nl.programit.service.UserService;
 
 
-/**
- * Created by udr013 on 12-5-2016.
- */
 @Controller
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+	//Strings met logische namen voor verwijzing naar html pagina
+	private String ToRegisterPage = "register";
+	private String RedirectToLoginPage = "redirect:/login";
+	
+	//Hieronder vind je het eigenlijke programma mbt de gebruikers
+   	@Autowired
+    private UserService userService; //Hier wordt een nieuw object gemaakt van de UserService, zodat de
+   									 //methodes van de UserService gebruikt kunnen worden (save en get).
+   									 //In de toekomst zou hier ook nog delete bij kunnen voor de administrator.
+   									 //De methode deleteUser is al beschikbaar in de UserService.
+   									 //En in de toekomst zou de administrator de user moeten kunnen wijzigen.
 
     @RequestMapping("/register")
     public String registerPage(Model model){
@@ -37,7 +43,7 @@ public class UserController {
         }
         model.addAttribute("user", new User());
         model.addAttribute("allUsers", allUsers);
-        return "register";
+        return ToRegisterPage;
     }
 
     @RequestMapping(value = {"/register/save"}, method = RequestMethod.POST)
@@ -45,16 +51,16 @@ public class UserController {
         userService.saveUser(user);
         System.out.println(user);
         System.out.println("saving user");
-        return "redirect:/login";
+        return RedirectToLoginPage;
 
     }
-
+    //Dit gedeelte wordt gebruikt om uit te kunnen loggen. Dit gedeelte haalt methodes op van Springboot Authentication.
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null){
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        return "redirect:/login";//generally it's a good practice to show login screen again.
+        return RedirectToLoginPage;//generally it's a good practice to show login screen again.
     }
 }
