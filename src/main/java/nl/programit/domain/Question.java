@@ -8,7 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Question implements Serializable {
@@ -18,21 +21,27 @@ public class Question implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int questionID;
 	
-	//@Column
+	@Column(name = "code", columnDefinition = "TEXT")
 	private String code;
-	//@Column
+	@Column(columnDefinition = "TEXT")
 	private String content;
 	
 	private Difficulty difficulty;
+	@Column(name = "is_marked", columnDefinition = "INT default 0")
 	private boolean isMarked;
 	private Status status;
+	@Column(name = "feedback", columnDefinition = "TEXT")
 	private String feedback;
+	@Column(name = "has_feedback", columnDefinition = "INT default 0")
 	private boolean hasFeedback;
 	private String internetLink;
 	// één internetlink is niet genoeg!!!
-	//@OneToMany(mappedBy="question")
+	@OneToMany(mappedBy="question")
 	private List<Answer> answers;
+	@ManyToOne
+	@JoinColumn(name = "categoryID")
 	private Category category;
+	@Transient
 	private boolean correct;
 	//waarom staat hier een boolean correct?
 		
