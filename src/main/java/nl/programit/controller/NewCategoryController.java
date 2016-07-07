@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import eu.programit.domain.Category;
-import eu.programit.service.CategoryService;
+import nl.programit.domain.Category;
+import nl.programit.service.CategoryService;
 
 @Controller
 public class NewCategoryController {
