@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 import nl.programit.domain.ExamView;
 
 @Component
-public interface TestViewsRepository extends CrudRepository<ExamView, Integer> {
+public interface ExamViewsRepository extends CrudRepository<ExamView, Integer> {
 	
 }

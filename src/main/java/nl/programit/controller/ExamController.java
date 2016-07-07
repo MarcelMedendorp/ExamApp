@@ -11,29 +11,30 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import eu.programit.domain.Question;
-import eu.programit.domain.TestViews;
-import eu.programit.service.QuestionService;
-import eu.programit.service.TestViewsService;
+import nl.programit.domain.Question;
+import nl.programit.domain.ExamView;
+import nl.programit.service.QuestionService;
+import nl.programit.service.ExamViewsService;
+import nl.programit.service.ExamViewsService;
 
 @Controller
 public class ExamController {
 
 
     @Autowired
-    private TestViewsService testViewsService;
+    private ExamViewsService examViewsService;
 
     @Autowired
     private QuestionService questionService;
 
     @RequestMapping(value = "/examsave", method = RequestMethod.POST)
-    String createExam(@ModelAttribute("testviews") TestViews testViews, Model model) {
-        System.out.println("this is" + testViews);
-        testViewsService.saveTestViews(testViews);
-        List<TestViews> testViewses= (List<TestViews>) testViewsService.findAll();
-        TestViews latestTest = testViewses.get(testViewses.size()-1);
-        testViews = testViewsService.findById(latestTest.getId());
-        model.addAttribute("latesttestview",testViews );
+    String createExam(@ModelAttribute("testviews") ExamView examViews, Model model) {
+        System.out.println("this is" + examViews);
+        examViewsService.saveExamViews(examViews);
+        List<ExamView> testViewses= (List<ExamView>) examViewsService.findAll();
+        ExamView latestTest = testViewses.get(testViewses.size()-1);
+        examViews = examViewsService.findById(latestTest.getId());
+        model.addAttribute("latesttestview",examViews );
         model.addAttribute("questions", questionService.findAll());
         model.addAttribute("selectedQuestions", new ArrayList<Question>());
         
