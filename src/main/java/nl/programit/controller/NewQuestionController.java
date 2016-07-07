@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import eu.programit.domain.Answer;
-import eu.programit.domain.Question;
-import eu.programit.service.AnswerService;
-import eu.programit.service.QuestionService;
+import nl.programit.domain.Answer;
+import nl.programit.domain.Question;
+import nl.programit.service.AnswerService;
+import nl.programit.service.QuestionService;
 
 @Controller
 public class NewQuestionController {
