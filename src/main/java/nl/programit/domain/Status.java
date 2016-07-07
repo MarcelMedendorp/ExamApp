@@ -1,5 +1,5 @@
 package nl.programit.domain;
 
-public enum Status {
+public enum Status {SUBMITTED, APPROVED
 
 }
