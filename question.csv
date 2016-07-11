@@ -1,0 +1,487 @@
+"questionid";"code";"difficulty";"feedback";"has_feedback";"internet_link";"is_marked";"status";"content";"categoryid"
+9;"class Automobile{
+   public void drive() {  System.out.println(""Automobile: drive"");   }
+}
+
+public class Truck extends Automobile{
+   public void drive() {  System.out.println(""Truck: drive"");   }
+   public static void main (String args [ ]){
+      Automobile  a = new Automobile();
+      Truck t  = new Truck();
+      a.drive(); //1
+      t.drive(); //2
+      a = t;     //3
+      a.drive(); //4
+   }
+}
+
+
+//End of Code";0;"";0;"";0;0;"Given the following classes, what will be the output of compiling and running the class Truck?";1
+10;"public class TestClass{
+  public static void main(String[] args){
+     int x = 1;
+     int y = 0;
+     if( x/y ) System.out.println(""Good"");
+     else  System.out.println(""Bad"");
+  }
+}";0;"";0;"";0;0;"What will the following program print?";2
+11;"class TestClass {
+	public static void main(String args[]) {
+		String str1 = ""str1"";
+		String str2 = ""str2"";
+		System.out.println(str1.concat(str2));
+		System.out.println(str1);
+		
+	}
+}";0;"";0;"";0;0;"What will be the result of attempting to compile and run the following code?";3
+12;"";2;"";0;"";0;0;"Which of the following are true about the enhanced for loop?";4
+13;"";2;"";0;"";0;0;"Which of the following are true about the ""default"" constructor?";5
+14;"";0;"";0;"";0;0;"Which of the following are true regarding overloading of a method?";6
+15;"package algoritmiek;
+
+public class FlowTest {
+
+	static int[] data = { 1, 2, 3, 4, 5 };
+
+	public static void main(String[] args) {
+		for (int i : data) {
+			if (i < 2) {
+				// insert code1 here             
+			}
+			System.out.print(i);
+			if (i == 3) {
+				// insert code2 here
+			}
+		}
+	}
+}
+";0;"";0;"";0;0;"What can be inserted in the following code so that it will print exactly 2345 when compiled and run?";4
+16;"";0;"";0;"";0;0;"Which of these statements are true?";5
+17;"abstract class Calculator{
+   abstract void calculate();
+   public static void main(String[] args){
+      System.out.println(""calculating"");
+      Calculator x = null;
+      x.calculate();
+   }
+}";0;"";0;"";0;0;"What will the following code print when compiled and run?";2
+18;"public class TestClass{
+  public void testRefs(String str, StringBuilder sb){
+    str = str + sb.toString();
+    sb.append(str);
+    str = null;
+    sb = null;
+  }
+  public static void main(String[] args){
+    String s = ""aaa"";
+    StringBuilder sb = new StringBuilder(""bbb"");
+    new TestClass().testRefs(s, sb);
+    System.out.println(""s=""+s+"" sb=""+sb);
+  }
+}";2;"";0;"";0;0;"What will be the output of the following class:";7
+19;"int[] scores = { 1, 2, 3, 4, 5, 6};
+System.arraycopy(scores, 2, scores, 3, 2);
+for(int i :  scores) System.out.print(i);";2;"";0;"";0;0;"What will the following code print?";8
+20;"";0;"";0;"";0;0;"Which of the following is/are valid double values for 10 million? (A million has 6 zeros)";3
+21;"int[] array1, array2[];
+int[][] array3; 
+int[] array4[], array5[]; 
+
+
+Which of the following are valid statements?";0;"";0;"";0;0;"Consider the following array definitions:";8
+22;"class TestClass {
+	public static void main(String[] args) {
+		System.out.println(""hello"");
+	}
+}";0;"";0;"";0;0;"The following are the complete contents of TestClass.java file. Which packages are automatically imported?";9
+23;"class SomeClass {
+	public static void main(String args[]) {
+		int size = 10;
+		int[] arr = new int[size];
+		for (int i = 0; i < size; ++i)
+			System.out.println(arr[i]);
+	}
+}";0;"";0;"";0;0;"What would be the result of compiling and running the following program?";8
+24;"String[] dataList = {""x"", ""y"", ""z""};
+for (String dataElement : dataList) {
+	int innerCounter = 0;
+	while (innerCounter < dataList.length) {
+		System.out.println(dataElement + "", "" + innerCounter);
+		innerCounter++;
+		}
+	}
+
+How many times will the output contain 2?";0;"";0;"";0;0;"Consider the following code:";4
+25;"class A {
+	public static void sM1() {
+		System.out.println(""In base static"");
+	}
+}
+
+class B extends A{
+		Line 1 :   // public static void sM1() {  System.out.println(""In sub static""); }
+		Line 2 :   // public  void sM1() {  System.out.println(""In sub non-static""); }
+}
+Which of the following statements are true?";0;"";0;"";0;0;"Consider the following classes :";1
+26;"";0;"";0;"";0;0;"Which of the following operators can be used in conjunction with a String object?";3
+27;"public class TestClass{
+  public static void main(String[] args){
+    unsigned byte b = 0;
+    b--;
+    System.out.println(b);
+  }
+}";0;"";0;"";0;0;"What will the following program print?";3
+28;"class Super{
+  public String toString(){
+     return ""4"";
+  }
+}
+public class SubClass extends Super{
+  public String toString(){
+     return super.toString()+""3"";
+  }
+  public static void main(String[] args){
+    System.out.println( new SubClass() );
+  }
+}";0;"";0;"";0;0;"What will the following program print when run?";1
+29;"public class X{
+	//line 1: insert code here.
+}";0;"";0;"";0;0;"Which of the following are valid at line 1?";9
+30;"class Super {  }
+class Sub extends Super {  }
+public class TestClass{
+   public static void main(String[] args){
+      Super s1 = new Super(); //1
+      Sub s2 = new Sub();     //2
+      s1 = (Super) s2;        //3
+   }
+}
+Which of the following statements are correct?";0;"";0;"";0;0;"Consider the following program...";1
+31;"class StaticTest{
+    
+    void m1(){
+        StaticTest.m2();  // 1
+        m4();             // 2
+        StaticTest.m3();  // 3
+    }
+    
+    static void m2(){ }  // 4
+    
+    void m3(){
+        m1();            // 5
+        m2();            // 6
+        StaticTest.m1(); // 7
+    }
+    
+    static void m4(){ }
+}
+Which of the lines will fail to compile?";0;"";0;"";0;0;"Given:";6
+32;"public class Test{
+ static String j = """";
+ public static void method( int i){
+  try{
+   if(i == 2){
+     throw new Exception();
+   }
+   j += ""1"";
+  }
+  catch (Exception e){
+   j += ""2"";
+   return;
+  }
+  finally{
+   j += ""3"";
+  }
+  j += ""4"";
+ }
+ public static void main(String args[]){
+  method(1);
+  method(2);
+  System.out.println(j);
+ }
+}";0;"";0;"";0;0;"What will the following code print when run?";2
+33;"public void method1(int i){
+   int j = (i*30 - 2)/100;
+   
+   POINT1 : for(;j<10; j++){
+       boolean flag  = false;
+       while(!flag){
+	if(Math.random()>0.5) break POINT1;
+       }
+   }
+  while(j>0){
+     System.out.println(j--);
+     if(j == 4) break POINT1;
+   }
+}
+What will it print? (Assume that Math.random() return a double between 0.0 and 1.0, not including 1.0)";0;"";0;"";0;0;"Consider the following method which is called with an argument of 7:";4
+34;"import java.io.*;
+class Great {
+    public void doStuff() throws FileNotFoundException{
+    }    
+}
+
+class Amazing extends Great { 
+  public void doStuff() throws IOException, IllegalArgumentException{
+  }    
+}
+
+public class TestClass {
+    public static void main(String[] args) throws IOException{
+        Great g = new Amazing();
+        g.doStuff();
+    }
+}
+Assume that changes suggested in a option are to be applied independent of other options.";2;"";0;"";0;0;"How can you fix the following code to make it compile:";1
+35;"public Object  myMethod() {...} 
+(Select the best option.)";0;"";0;"";0;0;"Which of the following is a legal return type of a method overriding the given method";1
+36;"//in file /root/com/foo/X.java
+package com.foo;
+public class X{
+  public static int LOGICID = 10;
+  public void apply(int i){
+    System.out.println(""applied"");
+  }
+}
+
+//in file /root/com/bar/Y.java
+package com.bar;
+//1 <== INSERT STATEMENT(s) HERE
+public class Y{
+    public static void main(String[] args){
+       X x = new X();
+       x.apply(LOGICID);
+    }
+}
+What should be inserted at //1 so that Y.java can compile without any error?";0;"";0;"";0;0;"Consider the following two classes defined in two java source files.";9
+37;" int a = 1 + 2 + 3 * 4; 
+ int b = 2 * 3 + 4;  
+ int total = a + b;  
+What will be the value of total?";0;"";0;"";0;0;"Given:";7
+38;"";0;"";0;"";0;0;"Which of the following method definitions will prevent overriding of that method?";1
+39;"public class Test {
+	int[] ia = new int[1];
+	Object oA[] = new Object[1];
+	boolean bool;
+
+	public static void main(String args[]) {
+		Test test = new Test();
+		System.out.println(test.ia[0] + ""  "" + test.oA[0] + ""  "" +
+                test.bool);
+	}
+}";0;"";0;"";0;0;"What would be the result of trying to compile and run the following program?";8
+40;"public static void main(String[] args) {
+   int[] values = { 10, 30, 50 };
+        for( int val : values ){
+            int x = 0;
+            while(x<values.length){
+             System.out.println(x+"" ""+val);
+              x++;
+            }
+        }              
+    }
+How many times is 2 printed out in the output?";0;"";0;"";0;0;"Consider the following code:";4
+41;"package exceptions;
+public class TestClass{
+    public static void main(String[] args) {
+        try{
+            hello();
+        }
+        catch(MyException me){
+            System.out.println(me);
+        }
+    }
+    
+    static void hello() throws MyException{
+        int[] dear = new int[7];
+        dear[0] = 747;
+        foo();
+    }
+    
+    static void foo() throws MyException{
+        throw new MyException(""Exception from foo"");
+    }
+}
+
+class MyException extends Exception {
+    public MyException(String msg){
+        super(msg);
+    }
+}
+(Assume that line numbers printed in the messages given below are correct.)";2;"";0;"";0;0;"What will be the output when the following program is run?";2
+42;"// Filename: TestClass.java
+class TestClass implements T1, T2{
+   public void m1(){}
+}
+interface T1{
+   int VALUE = 1;
+   void m1();
+}
+interface T2{
+   int VALUE = 2;
+   void m1();
+}";2;"";0;"";0;0;"What, if anything, is wrong with the following code?";1
+43;"class SomeClass {
+	public static void main(String args[]) {
+		if (args.length == 0) {
+			System.out.println(""no arguments"");
+		} else {
+			System.out.println(args.length + "" arguments"");
+		}
+	}
+}";0;"";0;"";0;0;"Given the following program, which statement is true?";9
+44;"";2;"";0;"";0;0;"Which of the following declarations are valid?";7
+45;"class Test{
+   public static void main(String args[]){
+      int var = 20, i=0;
+      do{
+         while(true){
+         if( i++ > var) break;
+         }
+      }while(i<var--);
+      System.out.println(var);
+   }
+}";2;"";0;"";0;0;"What will the following program print?";4
+46;"public class Operators {
+	public static int operators() {
+		int x1 = -4;
+		int x2 = x1--;
+		int x3 = ++x2;
+		if (x2 > x3) {
+			--x3;
+		} else {
+			x1++;
+		}
+		return x1 + x2 + x3;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(operators());
+	}
+}";2;"";0;"";0;0;"What will the following program print when run?";7
+47;"";2;"";0;"";0;0;"Identify the exceptions that are usually thrown by the JVM and the exceptions usually thrown by an application.";2
+48;"";0;"";0;"";0;0;"A try statement must always have a ............. associated with it.";2
+49;"int[][] twoD = { { 1, 2, 3} , { 4, 5, 6, 7}, { 8, 9, 10 } };  
+What will the following lines of code print?  
+System.out.println(twoD[1].length); System.out.println(twoD[2].getClass().isArray()); 
+System.out.println(twoD[1][2]);";2;"";0;"";0;0;"Given the following declaration:";8
+50;"class ScopeTest {
+	static int x = 5;
+
+	public static void main(String[] args) {
+		int x = (x = 3) * 4;// 1
+		System.out.println(x);
+	}
+}";2;"";0;"";0;0;"What will be the output when the following class is compiled and run?";7
+51;"public class TestClass {
+	public static void main(String[] args) {
+		int k = 2;
+		while (--k) {
+			System.out.println(k);
+		}
+	}
+}";0;"";0;"";0;0;"What will the following code print when compiled and run:";4
+52;"public abstract class TestClass {
+	public abstract void m1();
+
+public abstract void m2(){System.out.println(""hello"");}
+}
+
+ Which of the following corrections can be applied to the above code
+ (independently) so that it compiles without any error?";0;"";0;"";0;0;"Consider the following code:";9
+53;"package com.enthu; 
+public class Base{    
+   // ....    
+   // lot of code... 
+}";0;"";0;"";0;0;"Given the following class, which of these are valid ways of referring to the class from outside of the package com.enthu?";9
+54;"public class TestClass {
+	public static void main(String[] args) {
+		String str = ""111"";
+		boolean[] bA = new boolean[1];
+		if (bA[0])
+			str = ""222"";
+		System.out.println(str);
+	}
+}";0;"";0;"";0;0;"What will the following program print?";8
+55;"public class MyClass {
+    protected int value = 10;  
+}  
+
+Which of the following statements are correct regarding the field value?";0;"";0;"";0;0;"Consider the following code:";6
+56;"""    hello java guru   "".trim();";0;"";0;"";0;0;"What will the following statement return?";3
+57;"public class Test {
+	void test(){
+		MyClass obj = new MyClass();
+		obj.name = ""jack"";       
+		// 1 insert code here  
+		}
+} 
+
+// In MyClass.java
+public class MyClass{
+	int value;
+	String name; 
+}
+
+What can be inserted at // 1, which will make the object referred to by obj eligible for garbage collection?";0;"";0;"";0;0;"Consider the following code snippet:";9
+58;"";0;"";0;"";0;0;"You are modeling a class hierarchy for living things. You have a class LivingThing which has an abstract method reproduce(). Now, you want to have 2 concrete subclasses of LivingThing - Plant and Animal. Both do reproduce but the mechanisms are different. What would you do?";1
+59;"";0;"";0;"";0;0;"Assume that a method named 'method1' contains code which may raise a non-runtime (checked) Exception. What is/are the possible way(s) to declare this method so that it indicates that it expects the caller to handle that exception?";2
+60;"package x;
+public class TestClass {
+    ArrayList<String> al;
+    public void init(){
+        al = new ArrayList<>();
+        al.add(""Name 1"");
+        al.add(""Name 2"");
+    }
+    public static void main(String[] args) throws Exception {
+        TestClass tc = new TestClass();
+        tc.init();
+        System.out.println(""Size = ""+tc.al.size());
+    }
+}
+Which import statement should be added to make it compile?";1;"";0;"";0;0;"Given the complete contents of TestClass.java file:";8
+61;"public class TestClass {
+	static int si = 10;
+
+	public static void main(String args[]) {
+		new TestClass();
+	}
+
+	public TestClass() {
+		System.out.println(this);
+	}
+
+	public String toString() {
+		return ""TestClass.si = "" + this.si;
+	}
+}";1;"";0;"";0;0;"What is the result of compiling and running the following code ?";6
+62;"
+//line 1 
+public class TestClass {
+	public static void main(String[] args) {
+		PrintWriter pw = new PrintWriter(System.out);
+		OutputStreamWriter osw = new OutputStreamWriter(System.out);
+		pw.print(""hello"");
+	}
+}
+Assume that PrintWriter and OutputStreamWriter are valid classes in java.io package.";1;"";0;"";0;0;"Which of the following lines can be inserted at line 1 to make the program run";9
+63;"public class TestClass {
+	public static void main(String[] args) {
+		int[] arr = { 1, 2, 3, 4, 5, 6 };
+		int counter = 0;
+		for (int value : arr) {
+			if (counter >= 5) {
+				break;
+			} else {
+				continue;
+			}
+			if (value > 4) {
+				arr[counter] = value + 1;
+			}
+			counter++;
+		}
+		System.out.println(arr[counter]);
+	}
+}";2;"";0;"";0;0;"What will the following code print when compiled and run?";4
+64;", method = RequestMethod.POST";0;"";0;"";0;0;",mnbvc";1
