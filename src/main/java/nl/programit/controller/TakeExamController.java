@@ -27,7 +27,7 @@ public class TakeExamController {
 	UserService userService;
 	
 	@Autowired
-	TestResultService testResultService;
+	ExamResultService testResultService;
 
 	@Autowired
 	AnswerService answerService;
@@ -35,11 +35,11 @@ public class TakeExamController {
 	@Autowired
 	ExamViewsService testViewsService;
 	
-	private TestResults myTestResults;
-	private TestViews myTestView;
+	private ExamResults myTestResults;
+	private ExamView myTestView;
 
 	@RequestMapping(value = "/loadExamQuestion", method = RequestMethod.GET)
-	public String LoadExamQuestion(Model model, TestAnswerForm testAnswerForm, Principal principal) {
+	public String LoadExamQuestion(Model model, ExamAnswers testAnswerForm, Principal principal) {
 		Question q;
 		List<Answer> answers = null;
 		try {
@@ -78,7 +78,7 @@ public class TakeExamController {
 	}
 
 	@RequestMapping(value = "/loadExamQuestion", method = RequestMethod.POST)
-	public String LoadExamQuestionPOST(@ModelAttribute TestAnswerForm testAnswerForm, Principal principal) {
+	public String LoadExamQuestionPOST(@ModelAttribute ExamAnswers testAnswerForm, Principal principal) {
 		List<Integer> answ = testAnswerForm.getTestAnswers();
 		if (answ != null) {
 			for (int s : answ) {
@@ -98,9 +98,9 @@ public class TakeExamController {
 
 	@RequestMapping("/SelectTest")
 	public String selectTest(Model model) {
-		Iterable<TestViews> tv = testViewsService.findAll();
+		Iterable<ExamView> tv = testViewsService.findAll();
 		model.addAttribute("testviews", tv);
-		model.addAttribute("testview", new TestViews());
+		model.addAttribute("testview", new ExamView());
 		return "SelectTest";
 	}
 
@@ -108,9 +108,9 @@ public class TakeExamController {
 	// *********************************************************************
 
 	@RequestMapping(value = "/StartTest", method = RequestMethod.POST)
-	public String startTest(@ModelAttribute("testview") TestViews testView, Principal principal) {
+	public String startTest(@ModelAttribute("testview") ExamView testView, Principal principal) {
 		if (testView.getId() == 0) return "redirect:/SelectTest";
-		myTestResults = new TestResults();
+		myTestResults = new ExamResults();
 		myTestView = testViewsService.findById(testView.getId());
 		System.out.println("Selected TEst: " + testView.getId() + "gebruiker:" + principal.getName());
 		// myTestsList = myTestView.getsortedTestViewsList();
@@ -132,7 +132,7 @@ public class TakeExamController {
 	// *********************************************************************
 
 	@RequestMapping(value = "/LoadNextQuestion", method = RequestMethod.POST)
-	public String loadNextQuestion(@ModelAttribute TestAnswerForm testAnswerForm, Principal principal) {
+	public String loadNextQuestion(@ModelAttribute ExamAnswers testAnswerForm, Principal principal) {
 		myTestResults.setTestResults(new Integer(myTestView.getCurrentQuestion().getQuestionId()),
 				testAnswerForm.getTestAnswers());
 		myTestView.getNextQuestion();
@@ -156,7 +156,7 @@ public class TakeExamController {
 	// *********************************************************************
 
 	@RequestMapping(value = "/LoadPrevQuestion", method = RequestMethod.POST)
-	public String loadPrevQuestion(@ModelAttribute TestAnswerForm testAnswerForm, Principal principal) {
+	public String loadPrevQuestion(@ModelAttribute ExamAnswers testAnswerForm, Principal principal) {
 		myTestResults.setTestResults(new Integer(myTestView.getCurrentQuestion().getQuestionId()),
 				testAnswerForm.getTestAnswers());
 		myTestView.getPrevQuestion();
@@ -175,7 +175,7 @@ public class TakeExamController {
 	// *********************************************************************
 
 	@RequestMapping(value = "/ShowAllQuestions", method = RequestMethod.POST)
-	public String showAllQuestions(Model model, @ModelAttribute TestAnswerForm testAnswerForm) {
+	public String showAllQuestions(Model model, @ModelAttribute ExamAnswers testAnswerForm) {
 		myTestResults.setTestResults(new Integer(myTestView.getCurrentQuestion().getQuestionId()),
 				testAnswerForm.getTestAnswers());
 		myTestResults.printValues();
@@ -189,7 +189,7 @@ public class TakeExamController {
 	// *********************************************************************
 
 	@RequestMapping(value = "/StopTheTest", method = RequestMethod.POST)
-	public String stopTheTest(Model model, @ModelAttribute TestAnswerForm testAnswerForm) {
+	public String stopTheTest(Model model, @ModelAttribute ExamAnswers testAnswerForm) {
 		myTestResults.setTestResults(new Integer(myTestView.getCurrentQuestion().getQuestionId()),
 				testAnswerForm.getTestAnswers());
 		myTestResults.printValues();
@@ -203,9 +203,9 @@ public class TakeExamController {
 	public String testEvaluation( Model model, Principal principal) {
 		testResultService.saveTestResult(myTestResults);
 		User user = userService.findByName(principal.getName());
-		List<TestResults> testResultses= (List<TestResults>) testResultService.findByUser(user);
+		List<ExamResults> testResultses= (List<ExamResults>) testResultService.findByUser(user);
 		List<Question> questions= new ArrayList<Question>();
-		TestResults lastTestResult = testResultses.get(testResultses.size()-1);
+		ExamResults lastTestResult = testResultses.get(testResultses.size()-1);
 		System.out.println(lastTestResult.getTestResultId() );
 		Map<Integer, List<Integer>> testResults = lastTestResult.getTestResults();
 		int correctQuestions = 0;
